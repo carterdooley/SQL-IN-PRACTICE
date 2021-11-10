@@ -1,0 +1,47 @@
+SELECT *
+FROM invoice_line
+WHERE unit_price IN(
+  SELECT unit_price
+  FROM invoice_line
+  WHERE unit_price > 0.99
+  );
+
+ SELECT *
+FROM playlist_track
+WHERE playlist_id IN(
+    SELECT playlist_id
+    FROM  playlist
+    WHERE name = 'music'
+);
+SELECT *
+FROM track
+WHERE name IN(
+	SELECT name
+  FROM playlist
+  WHERE playlist_id=5
+);
+SELECT *
+FROM track
+WHERE name IN(
+	SELECT name
+  FROM genre
+  WHERE name='comedy'
+);
+SELECT *
+FROM track
+WHERE title IN(
+	SELECT title
+  FROM album
+  WHERE title='FIREBALL'
+);
+SELECT *
+FROM track
+WHERE album_id IN(
+	SELECT album_id
+  FROM album
+  WHERE artist_id IN(
+  	SELECT artist_id 
+    FROM artist
+    WHERE name='Queen'
+  )
+);
